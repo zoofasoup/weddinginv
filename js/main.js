@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown(); // initial call
   setInterval(updateCountdown, 1000);
 
-  // 4. Scroll Animations (Fade In)
-  const fadeElements = document.querySelectorAll('.fade-in');
+  // 4. Scroll Animations (Fade Up)
+  const fadeElements = document.querySelectorAll('.fade-up');
   
   const checkFade = () => {
     const triggerBottom = window.innerHeight * 0.85;
