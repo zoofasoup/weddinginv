@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walimatul Ursy - Zufar & Salma</title>
+  
+  <!-- Open Graph Meta Tags for WhatsApp Preview -->
+  <meta property="og:title" content="The Wedding of Zufar & Salma">
+  <meta property="og:description" content="15 Agustus 2026. Kami mengundang Anda untuk hadir dalam momen bahagia ini.">
+  <meta property="og:image" content="assets/hero_cover.jpg">
+  <meta property="og:url" content="https://zoofasoup.github.io/weddinginv/">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+  <!-- Background Music Element (Hidden) -->
+  <audio id="bg-music" loop>
+    <!-- Placeholder: users should place an actual mp3 file here -->
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Audio Control Button -->
+  <div id="audio-btn" class="audio-btn paused">
+    <i class="fas fa-music"></i>
+  </div>
+
+  <!-- Cover Screen -->
+  <div id="cover-screen">
+    <h2 class="subtitle">The Wedding Of</h2>
+    <h1 class="title-names">Zufar & Salma</h1>
+    <div class="guest-info">
+      <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <div id="guest-name">Nama Tamu</div>
+    </div>
+    <button id="btn-open" class="btn"><i class="fas fa-envelope-open-text" style="margin-right: 8px;"></i> Buka Undangan</button>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content fade-in">
+        <div class="bismillah">﷽</div>
+        <h2 class="subtitle">Walimatul Ursy</h2>
+        <h1 class="title-names">Zufar<br><span style="font-size: 2rem;">&</span><br>Salma</h1>
+        <p class="subtitle" style="margin-top: 15px;">15 Agustus 2026</p>
+      </div>
+    </section>
+
+    <!-- Couple Profile -->
+    <section class="couple-profile fade-in" id="profile">
+      <div class="bismillah" style="font-size: 1.5rem; margin-bottom: 30px;">Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
+      <p style="margin-bottom: 40px; font-size: 0.95rem; color: #555;">
+        Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, perkenankanlah kami merangkaikan kasih sayang yang Kau ciptakan di antara kami.
+      </p>
+
+      <div class="couple-image-container fade-in">
+        <img src="assets/couple_profile.jpg" alt="Zufar & Salma Illustration">
+      </div>
+
+      <div class="person fade-in">
+        <h3>Ahmad Zufar Sidqi</h3>
+        <p>Putra dari Bapak M. Sifin Almufti & Ibu Sri Purwaningsih</p>
+        <a href="https://instagram.com/ahmdzufaar" target="_blank" class="instagram-link">
+          <i class="fab fa-instagram"></i> @ahmdzufaar
+        </a>
+      </div>
+
+      <div class="ampersand fade-in">&</div>
+
+      <div class="person fade-in">
+        <h3>Salma Mahlida Ailiya Passe</h3>
+        <p>Putri dari Bapak Ilham Passe & Ibu [Nama Ibu Salma]</p>
+        <a href="https://instagram.com/salmapasse" target="_blank" class="instagram-link">
+          <i class="fab fa-instagram"></i> @salmapasse
+        </a>
+      </div>
+
+      <div class="story-text fade-in">
+        "Pertemuan kami dimulai dari sebuah aplikasi, tempat yang tak pernah kami duga akan membawa pada langkah sebesar ini. Dari perkenalan yang sederhana, tumbuh kepercayaan, lalu keyakinan bahwa inilah yang selama ini dicari. Dengan restu keluarga besar, kami mantap melangkah menuju babak baru bersama."
+      </div>
+    </section>
+
+    <img src="assets/floral_divider.jpg" class="divider fade-in" alt="Divider">
+
+    <!-- Event Details -->
+    <section class="event-details fade-in" id="event">
+      <div class="event-card">
+        <h2>Syukuran Walimah</h2>
+        <p class="event-date">Sabtu, 15 Agustus 2026</p>
+        <p class="event-time"><i class="far fa-clock"></i> 09.00 – 13.00 WIB</p>
+        
+        <p class="event-venue" style="margin-top: 15px;">Jelita Venue & Sakha Cafe</p>
+        <p class="event-address">[Placeholder: Nama Jalan, Nomor, Kecamatan, Kota Bogor]</p>
+        
+        <div class="event-actions">
+          <a href="https://www.google.com/maps/place/Jelita+Venue+(+Event+%26+Wedding+Venue+)/@-6.5878863,106.8308941,17z" target="_blank" class="btn btn-outline" style="background:#fff;"><i class="fas fa-map-marker-alt"></i> Buka Google Maps</a>
+          <a href="#" id="btn-calendar" class="btn" style="background:transparent; border: 1px solid #fff; color: #fff;"><i class="far fa-calendar-plus"></i> Simpan ke Kalender</a>
+        </div>
+      </div>
+      
+      <!-- Countdown -->
+      <div class="countdown-container fade-in">
+        <div class="countdown-box">
+          <span class="number" id="days">00</span>
+          <span class="label">Hari</span>
+        </div>
+        <div class="countdown-box">
+          <span class="number" id="hours">00</span>
+          <span class="label">Jam</span>
+        </div>
+        <div class="countdown-box">
+          <span class="number" id="minutes">00</span>
+          <span class="label">Menit</span>
+        </div>
+        <div class="countdown-box">
+          <span class="number" id="seconds">00</span>
+          <span class="label">Detik</span>
+        </div>
+      </div>
+    </section>
+
+    <img src="assets/floral_divider.jpg" class="divider fade-in" alt="Divider">
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section fade-in" id="rsvp">
+      <h2 class="title-names" style="font-size: 2.5rem; margin-bottom: 10px;">RSVP</h2>
+      <p style="font-size: 0.9rem; margin-bottom: 20px;">Mohon konfirmasi kehadiran sebelum 25 Juli 2026</p>
+      
+      <div class="rsvp-iframe-container">
+        <!-- REPLACE SRC WITH YOUR GOOGLE FORM EMBED URL -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+      </div>
+    </section>
+
+    <img src="assets/floral_divider.jpg" class="divider fade-in" alt="Divider">
+
+    <!-- Digital Gift / Angpao -->
+    <section class="gift-section fade-in" id="gift">
+      <h2 class="title-names" style="font-size: 2.5rem;">Tanda Kasih</h2>
+      <p style="font-size: 0.9rem; margin-bottom: 30px;">Bagi keluarga dan sahabat yang ingin memberikan tanda kasih, dapat mengirimkan melalui:</p>
+      
+      <div class="gift-card">
+        <h3 class="text-sage" style="font-size: 1.5rem; margin-bottom: 5px;">BCA</h3>
+        <p style="font-size: 0.9rem; color: #777;">a.n. Ahmad Zufar Sidqi</p>
+        <div class="account-number" id="norek-bca">5195201941</div>
+        <button class="copy-btn" data-target="norek-bca"><i class="far fa-copy"></i> Salin No. Rekening</button>
+      </div>
+
+      <!-- Add QRIS Here if needed -->
+      <!--
+      <div class="gift-card">
+        <h3 class="text-sage" style="font-size: 1.5rem; margin-bottom: 15px;">QRIS</h3>
+        <img src="assets/qris-placeholder.png" alt="QRIS" style="max-width: 200px; width: 100%; border: 1px solid #eee; border-radius: 10px;">
+      </div>
+      -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="fade-in">
+      <p style="margin-bottom: 20px; font-size: 0.9rem;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+      <div class="bismillah" style="color: var(--color-cream); font-size: 1.5rem; margin-bottom: 15px;">Wassalamu'alaikum Warahmatullahi Wabarakatuh</div>
+      <h1 class="title-names">Zufar & Salma</h1>
+      <p>&copy; 2026. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
