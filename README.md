@@ -12,12 +12,23 @@ Search for `[Placeholder: Nama Jalan, Nomor, Kecamatan, Kota Bogor]` in `index.h
 ### 2. Update Mother's Name
 Search for `[Nama Ibu Salma]` in `index.html` and replace it with the correct name.
 
-### 3. Google Form RSVP Link
-To enable the RSVP section, you must replace the placeholder `src` in the `<iframe>` tag.
-1. Go to your Google Form.
-2. Click **Send** -> **< > (Embed HTML)**.
-3. Copy the URL inside `src="..."` (it should look like `https://docs.google.com/forms/d/e/.../viewform?embedded=true`).
-4. Replace the `src` attribute of the iframe in `index.html`.
+### 3. Connect Custom RSVP Form to Google Forms
+Instead of an ugly iframe, the invitation now uses a beautifully styled custom HTML form that sends data silently to your Google Form. To connect it:
+
+1. Create a Google Form with 4 Short Answer/Paragraph questions exactly in this order:
+   - Nama Lengkap
+   - Konfirmasi Kehadiran (Hadir / Tidak Hadir)
+   - Jumlah Tamu
+   - Ucapan & Doa
+2. Get your Form's Action URL:
+   - Open your published Google Form, right-click, and select **Inspect**.
+   - Search (Ctrl+F) for `<form action="`.
+   - Copy the URL (it ends in `/formResponse`).
+   - Paste it into `js/main.js` at line 143: `const GOOGLE_FORM_ACTION_URL = '...'`.
+3. Get the Entry IDs for your inputs:
+   - Still in Inspect mode, search for `name="entry.`.
+   - You will find 4 numbers (e.g. `entry.123456789`).
+   - Open `index.html` and replace the `name="entry.PLACEHOLDER_...` attributes in the `<input>`, `<select>`, and `<textarea>` tags with your actual entry IDs matching the questions.
 
 ### 4. Background Music
 There is an `<audio>` element at the top of `index.html`. 

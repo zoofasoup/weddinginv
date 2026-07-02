@@ -132,4 +132,44 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.open(googleCalendarUrl, '_blank');
   });
+
+  // 7. Custom RSVP Form Submission (to Google Forms)
+  const rsvpForm = document.getElementById('rsvp-form');
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('btn-submit-rsvp');
+      const rsvpMessage = document.getElementById('rsvp-message');
+      
+      // Update with your actual Google Form POST URL
+      // e.g. https://docs.google.com/forms/d/e/1FAIpQLSc.../formResponse
+      const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
+      
+      const formData = new FormData(rsvpForm);
+      submitBtn.innerText = 'Mengirim...';
+      submitBtn.disabled = true;
+
+      fetch(GOOGLE_FORM_ACTION_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Important: bypasses CORS policy for Google Forms
+        body: formData
+      })
+      .then(() => {
+        // no-cors means we won't get a true success response, but we can assume it worked if no network error
+        rsvpForm.reset();
+        submitBtn.innerText = 'Terkirim!';
+        rsvpMessage.style.display = 'block';
+        setTimeout(() => {
+          submitBtn.innerText = 'Kirim RSVP';
+          submitBtn.disabled = false;
+        }, 3000);
+      })
+      .catch(error => {
+        console.error('Error submitting form', error);
+        submitBtn.innerText = 'Gagal, coba lagi';
+        submitBtn.disabled = false;
+      });
+    });
+  }
 });

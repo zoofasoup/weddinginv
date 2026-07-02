@@ -134,10 +134,37 @@
       <h2 class="title-names" style="font-size: 2.5rem; margin-bottom: 10px;">RSVP</h2>
       <p style="font-size: 0.9rem; margin-bottom: 20px;">Mohon konfirmasi kehadiran sebelum 25 Juli 2026</p>
       
-      <div class="rsvp-iframe-container">
-        <!-- REPLACE SRC WITH YOUR GOOGLE FORM EMBED URL -->
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
-      </div>
+      <form id="rsvp-form" class="custom-form">
+        <div class="form-group">
+          <label for="guest-name-input">Nama Lengkap</label>
+          <input type="text" id="guest-name-input" name="entry.PLACEHOLDER_NAME" required placeholder="Tulis nama Anda">
+        </div>
+        
+        <div class="form-group">
+          <label for="attendance">Konfirmasi Kehadiran</label>
+          <select id="attendance" name="entry.PLACEHOLDER_ATTENDANCE" required>
+            <option value="" disabled selected>Pilih Kehadiran...</option>
+            <option value="Hadir">Insya Allah Hadir</option>
+            <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="guest-count">Jumlah Tamu</label>
+          <select id="guest-count" name="entry.PLACEHOLDER_COUNT" required>
+            <option value="1">1 Orang</option>
+            <option value="2">2 Orang</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="wishes">Ucapan & Doa</label>
+          <textarea id="wishes" name="entry.PLACEHOLDER_WISHES" rows="4" placeholder="Tuliskan ucapan dan doa untuk kedua mempelai"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-gold" id="btn-submit-rsvp" style="width: 100%;">Kirim RSVP</button>
+        <p id="rsvp-message" style="display: none; margin-top: 15px; font-size: 0.9rem; color: var(--color-sage); font-weight: 600;">Terima kasih atas konfirmasi Anda!</p>
+      </form>
     </section>
 
     <img src="assets/floral_divider.jpg" class="divider fade-in" alt="Divider">
