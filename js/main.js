@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }).catch(err => {
         console.log("Audio autoplay blocked or file missing", err);
         audioBtn.classList.add('paused');
-        audioIcon.className = 'fas fa-music-slash';
+        audioIcon.className = 'fas fa-compact-disc';
       });
     }
   });
@@ -43,11 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isPlaying) {
       bgMusic.pause();
       audioBtn.classList.add('paused');
-      audioIcon.className = 'fas fa-music-slash';
     } else {
       bgMusic.play();
       audioBtn.classList.remove('paused');
-      audioIcon.className = 'fas fa-music';
     }
     isPlaying = !isPlaying;
   });
