@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Update with your actual Google Form POST URL
       // e.g. https://docs.google.com/forms/d/e/1FAIpQLSc.../formResponse
-      const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/formResponse';
+      const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdusvIrNd5Ad4yP5gZrRDDDE8PIzuZtnBHjTsSpAeO9-o8tkw/formResponse';
       
       const formData = new FormData(rsvpForm);
       submitBtn.innerText = 'Mengirim...';
