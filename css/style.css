@@ -382,34 +382,42 @@ section {
 
 .custom-form {
   text-align: left;
-  margin-top: 30px;
-  padding: 0 15px;
+  margin-top: 40px;
+  padding: 30px 20px;
+  background: linear-gradient(145deg, #ffffff, #fdfbf7);
+  border: 1px solid rgba(203, 163, 101, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(121, 138, 119, 0.05);
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  position: relative;
 }
 
 .form-group label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: var(--color-sage);
   margin-bottom: 8px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid var(--color-gold-light);
-  border-radius: 8px;
+  padding: 15px 20px;
+  border: 1px solid rgba(203, 163, 101, 0.3);
+  border-radius: 12px;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  background: var(--color-cream);
+  background: rgba(255, 255, 255, 0.7);
   color: var(--color-text-dark);
-  transition: border-color 0.3s;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .form-group input:focus,
@@ -417,6 +425,34 @@ section {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-gold);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(203, 163, 101, 0.1), inset 0 2px 5px rgba(0,0,0,0.01);
+  transform: translateY(-2px);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Enhancing the submit button specifically for the form */
+#btn-submit-rsvp {
+  margin-top: 10px;
+  padding: 16px;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-gold), #b89150);
+  border: none;
+  color: #fff;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 20px rgba(203, 163, 101, 0.2);
+}
+
+#btn-submit-rsvp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(203, 163, 101, 0.3);
+  background: linear-gradient(135deg, #b89150, var(--color-gold));
 }
 
 /* Digital Gift */
