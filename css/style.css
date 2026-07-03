@@ -19,20 +19,28 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
+html {
+  background-color: #050505;
+  scroll-behavior: smooth;
+}
 body {
   font-family: var(--font-body);
-  background-color: var(--color-emerald-dark);
   color: var(--color-cream);
-  line-height: 1.8;
+  line-height: 1.6;
   overflow-x: hidden;
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 100vh;
+  transform: translateX(0); /* Anchors fixed elements to body */
+  box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.1);
+  background-color: var(--color-emerald-dark);
 }
 
 body.locked { overflow-y: hidden; }
 
 /* Grand Parallax Background */
 .parallax-bg {
-  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
   background: 
     linear-gradient(to bottom, rgba(7, 7, 7, 0.8), rgba(7, 7, 7, 0.98)),
     url('../assets/royal_hero.jpg') center/cover no-repeat;
@@ -104,7 +112,7 @@ section { padding: 80px 20px; max-width: 800px; margin: 0 auto; position: relati
 
 /* 1. Cover Screen */
 #cover-screen {
-  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
   background: 
     linear-gradient(rgba(7,7,7,0.6), rgba(7,7,7,0.9)),
     url('../assets/royal_hero.jpg') center/cover no-repeat;
