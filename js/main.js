@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       
       const submitBtn = document.getElementById('btn-submit-rsvp');
-      const rsvpMessage = document.getElementById('rsvp-message');
+      const rsvpSuccess = document.getElementById('rsvp-success');
       
       // Update with your actual Google Form POST URL
       // e.g. https://docs.google.com/forms/d/e/1FAIpQLSc.../formResponse
@@ -171,12 +171,10 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(() => {
         // no-cors means we won't get a true success response, but we can assume it worked if no network error
         rsvpForm.reset();
-        submitBtn.innerText = 'Terkirim!';
-        rsvpMessage.style.display = 'block';
-        setTimeout(() => {
-          submitBtn.innerText = 'Kirim RSVP';
-          submitBtn.disabled = false;
-        }, 3000);
+        
+        // Hide the form and show the beautiful thank you message
+        rsvpForm.style.display = 'none';
+        rsvpSuccess.style.display = 'block';
       })
       .catch(error => {
         console.error('Error submitting form', error);
