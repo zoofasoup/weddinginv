@@ -92,21 +92,11 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 600; text-transform:
   transform: translateY(-3px); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
 }
 
-/* Opulent Glass Cards */
+/* Open Layout (No Boxes) */
 .royal-card {
-  background: rgba(17, 17, 17, 0.6);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: inset 0 0 40px rgba(212, 175, 55, 0.05), 0 20px 50px rgba(0,0,0,0.8);
-  border-radius: 10px; padding: 60px 30px; position: relative; overflow: hidden;
+  padding: 60px 20px; position: relative; overflow: hidden;
+  /* Removed glassmorphism, borders, and shadows based on user feedback */
 }
-/* Corner Ornaments */
-.royal-card::before, .royal-card::after {
-  content: ''; position: absolute; width: 60px; height: 60px;
-  border: 2px solid var(--color-gold); opacity: 0.5;
-}
-.royal-card::before { top: 15px; left: 15px; border-right: none; border-bottom: none; }
-.royal-card::after { bottom: 15px; right: 15px; border-left: none; border-top: none; }
 
 section { padding: 80px 20px; max-width: 800px; margin: 0 auto; position: relative; }
 
