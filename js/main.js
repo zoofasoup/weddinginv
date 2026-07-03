@@ -70,10 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const distance = weddingDate - now;
 
     if (distance < 0) {
-      document.getElementById('days').innerText = "00";
-      document.getElementById('hours').innerText = "00";
-      document.getElementById('minutes').innerText = "00";
-      document.getElementById('seconds').innerText = "00";
+      const elDays = document.getElementById('days');
+      const elHours = document.getElementById('hours');
+      const elMinutes = document.getElementById('minutes');
+      const elSeconds = document.getElementById('seconds');
+      if (elDays) elDays.innerText = "00";
+      if (elHours) elHours.innerText = "00";
+      if (elMinutes) elMinutes.innerText = "00";
+      if (elSeconds) elSeconds.innerText = "00";
       return;
     }
 
@@ -82,10 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById('days').innerText = days.toString().padStart(2, '0');
-    document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+    const elDays = document.getElementById('days');
+    const elHours = document.getElementById('hours');
+    const elMinutes = document.getElementById('minutes');
+    const elSeconds = document.getElementById('seconds');
+
+    if (elDays) elDays.innerText = days.toString().padStart(2, '0');
+    if (elHours) elHours.innerText = hours.toString().padStart(2, '0');
+    if (elMinutes) elMinutes.innerText = minutes.toString().padStart(2, '0');
+    if (elSeconds) elSeconds.innerText = seconds.toString().padStart(2, '0');
   };
 
   updateCountdown(); // initial call
