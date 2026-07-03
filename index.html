@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Royal Wedding - Zufar & Salma</title>
+  <title>The Wedding of Zufar & Salma</title>
   
-  <meta property="og:title" content="The Royal Wedding of Zufar & Salma">
+  <meta property="og:title" content="The Wedding of Zufar & Salma">
   <meta property="og:description" content="15 Agustus 2026. Kami mengundang Anda untuk hadir dalam momen bahagia ini.">
-  <meta property="og:image" content="assets/royal_hero.jpg">
-  <meta property="og:url" content="https://zoofasoup.github.io/weddinginv/">
+  <meta property="og:image" content="assets/burgundy_hero.jpg">
+  <meta property="og:url" content="https://zufarsalma.xyz/">
 
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,209 +24,163 @@
     <source src="assets/music.mp3" type="audio/mpeg">
   </audio>
 
-  <div id="audio-btn" class="audio-btn paused">
-    <i class="fas fa-compact-disc"></i>
-  </div>
-
-  <!-- 1. The Grand Entrance -->
+  <!-- 1. The Cover Screen -->
   <div id="cover-screen">
-    <div class="subtitle fade-up">The Wedding Of</div>
-    <h1 class="title-names fade-up" style="font-size: 5rem; margin: 20px 0;">Zufar & Salma</h1>
-    <div class="envelope-line fade-up"></div>
-    <div class="guest-info fade-up">
-      <p>Kepada Yth.</p>
-      <div id="guest-name">Nama Tamu</div>
+    <div class="subtitle fade-up" style="color: rgba(255,255,255,0.8);">The Wedding Of</div>
+    <h1 class="title-names fade-up" style="color: #fff;">Zufar & Salma</h1>
+    <div class="fade-up" style="margin-top: 30px;">
+      <p style="font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Kepada Yth.</p>
+      <div id="guest-name" style="font-size: 1.2rem; font-weight: 600; margin-top: 10px;">Nama Tamu</div>
     </div>
-    <button id="btn-open" class="btn-gold fade-up">Buka Undangan</button>
+    <button id="btn-open" class="btn-burgundy fade-up" style="margin-top: 40px;">Buka Undangan</button>
   </div>
 
-  <main>
-    <!-- Hero (After Open) -->
-    <section class="hero-section" id="hero">
-      <div class="fade-up" style="text-align: center; margin-top: 20vh;">
-        <h2 class="subtitle">Walimatul Ursy</h2>
-        <h1 class="title-names">Zufar <span style="font-size: 2.5rem; color: var(--color-gold); font-family: var(--font-heading);">&</span> Salma</h1>
-        <p class="subtitle" style="margin-top: 30px;">15 . 08 . 2026</p>
-      </div>
-    </section>
-
-    <!-- 2. The Sacred Ayat -->
-    <section class="fade-up" id="ayat">
-      <div class="royal-card text-center">
-        <div class="bismillah" style="font-family: serif; font-size: 2.5rem; color: var(--color-gold); margin-bottom: 30px;">﷽</div>
-        <div class="ayat-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</div>
-        <div class="ayat-translation">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."<br><br><span class="text-gold">(QS. Ar-Rum: 21)</span></div>
-      </div>
-    </section>
-
-    <!-- 3. The Bride & Groom -->
-    <section class="fade-up" id="profiles">
-      <h2 class="subtitle text-center" style="margin-bottom: 20px;">Sang Mempelai</h2>
-      <div class="profiles-grid">
-        
-        <div class="profile-card royal-card">
-          <div class="portrait-wrap"><img src="assets/royal_groom.jpg" alt="Groom"></div>
-          <h3 class="profile-name">Ahmad Zufar Sidqi</h3>
-          <p class="profile-parents">Putra dari<br>Bapak M. Sifin Almufti & Ibu Sri Purwaningsih</p>
-          <a href="https://instagram.com/ahmdzufaar" target="_blank" class="btn-gold" style="padding: 10px 20px; margin-top: 20px; font-size: 0.8rem;"><i class="fab fa-instagram"></i> @ahmdzufaar</a>
-        </div>
-
-        <div class="ampersand">&</div>
-
-        <div class="profile-card royal-card">
-          <div class="portrait-wrap"><img src="assets/royal_bride.jpg" alt="Bride"></div>
-          <h3 class="profile-name">Salma Mahlida A.P.</h3>
-          <p class="profile-parents">Putri dari<br>Bapak Ilham Passe & Ibu [Nama Ibu Salma]</p>
-          <a href="https://instagram.com/salmapasse" target="_blank" class="btn-gold" style="padding: 10px 20px; margin-top: 20px; font-size: 0.8rem;"><i class="fab fa-instagram"></i> @salmapasse</a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 4. Our Journey -->
-    <section class="fade-up" id="journey">
-      <div class="royal-card">
-        <h2 class="subtitle text-center" style="margin-bottom: 40px;">Our Journey</h2>
-        
-        <div class="timeline">
-          <div class="timeline-item fade-up">
-            <div class="timeline-date">Juni 2024</div>
-            <h3 class="timeline-title">Awal Bertemu</h3>
-            <p class="timeline-text">Berawal dari sebuah perkenalan sederhana yang tak disengaja. Tidak ada yang menduga bahwa obrolan ringan tersebut menjadi awal dari cerita panjang kami.</p>
-          </div>
-          <div class="timeline-item fade-up">
-            <div class="timeline-date">Desember 2025</div>
-            <h3 class="timeline-title">Khitbah</h3>
-            <p class="timeline-text">Dengan niat yang baik dan restu dari kedua keluarga besar, kami memutuskan untuk mengikat janji dan melangkah ke jenjang yang lebih serius.</p>
-          </div>
-          <div class="timeline-item fade-up">
-            <div class="timeline-date">Agustus 2026</div>
-            <h3 class="timeline-title">Hari Bahagia</h3>
-            <p class="timeline-text">Hari di mana kami menyempurnakan separuh agama, mengikat janji suci di hadapan Allah SWT, keluarga, dan sahabat tercinta.</p>
+  <main class="cream-wrapper">
+    
+    <!-- Hero Envelope -->
+    <section id="hero" class="envelope-container fade-up">
+      <div style="position: relative;">
+        <img src="assets/burgundy_envelope.jpg" alt="Envelope" class="envelope-img">
+        <div class="envelope-text">
+          <div class="subtitle" style="font-size: 0.5rem;">Join us for the wedding of</div>
+          <h1 class="title-names">Zufar<br><span style="font-size: 2rem;">&</span><br>Salma</h1>
+          <div class="date">
+            Sabtu, 15 Agustus 2026<br>
+            Jelita Venue, Bogor
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. The Celebration -->
-    <section class="fade-up" id="event">
-      <div class="royal-card event-card">
-        <h2 class="subtitle" style="margin-bottom: 20px;">The Celebration</h2>
-        <h3 class="event-title">Syukuran Walimah</h3>
-        
-        <div class="event-detail-group">
-          <i class="far fa-calendar-alt"></i>
-          <div class="event-detail-label">Tanggal</div>
-          <div class="event-detail-value">Sabtu, 15 Agustus 2026</div>
-        </div>
-        
-        <div class="event-detail-group">
-          <i class="far fa-clock"></i>
-          <div class="event-detail-label">Waktu</div>
-          <div class="event-detail-value">09.00 – 13.00 WIB</div>
-        </div>
-        
-        <div class="event-detail-group" style="margin-bottom: 40px;">
-          <i class="fas fa-map-marked-alt"></i>
-          <div class="event-detail-label">Lokasi</div>
-          <div class="event-venue">Jelita Venue & Sakha Cafe</div>
-          <div class="event-address" style="margin-top: 10px;">[Placeholder: Alamat Lengkap Venue, Kota Bogor]</div>
-        </div>
-        
-        <div class="event-actions" style="margin-top: 40px;">
-          <a href="https://www.google.com/maps/place/Jelita+Venue+(+Event+%26+Wedding+Venue+)/@-6.5878863,106.8308941,17z" target="_blank" class="btn-gold"><i class="fas fa-map-marker-alt"></i> Buka Google Maps</a>
-        </div>
+    <!-- Music Player -->
+    <div class="music-player fade-up">
+      <i class="fas fa-backward-step"></i>
+      <div id="audio-btn" class="record paused">
+        <i class="fas fa-compact-disc"></i>
       </div>
+      <i class="fas fa-forward-step"></i>
+    </div>
+    <div class="song-title fade-up">Canon in D - Pachelbel</div>
 
-      <!-- Countdown -->
-      <div class="countdown-container fade-up">
-        <div class="countdown-box"><span class="number" id="days">00</span><span class="label">Hari</span></div>
-        <div class="countdown-box"><span class="number" id="hours">00</span><span class="label">Jam</span></div>
-        <div class="countdown-box"><span class="number" id="minutes">00</span><span class="label">Menit</span></div>
-        <div class="countdown-box"><span class="number" id="seconds">00</span><span class="label">Detik</span></div>
+    <!-- Our Love Story Polaroids -->
+    <section class="polaroid-gallery fade-up">
+      <div class="polaroid polaroid-1">
+        <img src="assets/royal_groom.jpg" alt="Zufar">
+        <div class="polaroid-caption">Ahmad Zufar Sidqi</div>
       </div>
-      
-      <div class="text-center fade-up">
-        <a href="#" id="btn-calendar" class="btn-gold" style="background: transparent; border: 1px solid var(--color-gold); color: var(--color-gold); box-shadow: none;"><i class="far fa-calendar-plus"></i> Simpan ke Kalender</a>
+      <div class="polaroid polaroid-2">
+        <img src="assets/royal_bride.jpg" alt="Salma">
+        <div class="polaroid-caption">Salma Mahlida A.P.</div>
       </div>
     </section>
 
-    <!-- 6. Gallery -->
-    <section class="fade-up" id="gallery">
-      <h2 class="subtitle text-center">Gallery</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item fade-up"><img src="assets/royal_gallery.jpg" alt="Gallery 1"></div>
-        <div class="gallery-item fade-up"><img src="assets/royal_hero.jpg" alt="Gallery 2"></div>
+    <div class="wax-seal fade-up"></div>
+
+    <!-- The Ceremony Card -->
+    <section class="paper-card fade-up">
+      <div class="subtitle">Walimatul Ursy</div>
+      <h2>The Ceremony</h2>
+      <p style="margin-bottom: 20px; font-size: 0.95rem;">
+        Puji syukur kehadirat Allah SWT yang telah mempertemukan kami.<br>
+        Acara akan diselenggarakan pada:
+      </p>
+      <div style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-burgundy); margin: 20px 0;">
+        Pukul 09:00 - 13:00 WIB
+      </div>
+      <p style="font-size: 0.9rem; color: #555; margin-bottom: 20px;">
+        Jelita Venue & Sakha Cafe<br>
+        Bogor, Jawa Barat
+      </p>
+      <a href="https://www.google.com/maps/place/Jelita+Venue+(+Event+%26+Wedding+Venue+)/@-6.5878863,106.8308941,17z" target="_blank" class="btn-burgundy" style="font-size: 0.7rem; padding: 10px 20px;"><i class="fas fa-map-marker-alt"></i> Get Direction</a>
+    </section>
+
+    <div class="wax-seal fade-up"></div>
+
+    <!-- Countdown Horizontal -->
+    <section class="fade-up" style="margin: 60px 0;">
+      <div class="countdown-horizontal">
+        <div class="countdown-val" id="days">00</div><div class="countdown-sep">:</div>
+        <div class="countdown-val" id="hours">00</div><div class="countdown-sep">:</div>
+        <div class="countdown-val" id="minutes">00</div><div class="countdown-sep">:</div>
+        <div class="countdown-val" id="seconds">00</div>
+      </div>
+      <div class="countdown-labels">
+        <span>DAYS</span><span>HOURS</span><span>MINUTES</span><span>SECONDS</span>
       </div>
     </section>
 
-    <!-- 7. RSVP -->
-    <section class="fade-up" id="rsvp">
-      <div class="royal-card">
-        <h2 class="subtitle text-center" style="margin-bottom: 10px;">Kehadiran</h2>
-        <h3 class="event-title text-center" style="font-size: 3.5rem;">RSVP</h3>
-        <p class="text-center" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Mohon konfirmasi kehadiran Anda sebelum 25 Juli 2026</p>
+    <!-- Registry Buttons -->
+    <section class="registry-buttons fade-up">
+      <button class="btn-burgundy" id="btn-gift" style="width: 100%;"><i class="fas fa-gift"></i> The Wedding Registry</button>
+      <div id="gift-info" style="display: none; padding: 20px; background: #fff; border: 1px solid #ddd; text-align: center; border-radius: 5px;">
+        <div style="font-weight: 600; color: var(--color-burgundy); margin-bottom: 10px;">BCA - Ahmad Zufar Sidqi</div>
+        <div style="font-size: 1.2rem; letter-spacing: 2px;" id="norek-bca">5195 2019 41</div>
+        <button class="btn-copy" data-target="norek-bca" style="margin-top: 10px; padding: 5px 10px; border: 1px solid #ccc; background: transparent; cursor: pointer; border-radius: 5px;"><i class="far fa-copy"></i> Salin</button>
+      </div>
+    </section>
+
+    <!-- RSVP Envelope -->
+    <section class="envelope-container fade-up" style="margin-top: 60px; padding-top: 0;">
+      <div style="position: relative;">
+        <img src="assets/burgundy_envelope.jpg" alt="Envelope" class="envelope-img">
+        <div class="envelope-text">
+          <div class="subtitle">Kindly</div>
+          <h1 class="title-names" style="font-family: var(--font-heading); font-size: 3rem;">RSVP</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Form -->
+    <section class="rsvp-wrapper fade-up">
+      <form id="rsvp-form" class="rsvp-form">
         
-        <form id="rsvp-form" class="custom-form fade-up">
-          <div class="form-group">
-            <label>Nama Lengkap</label>
-            <input type="text" name="entry.1633588136" required placeholder="Tulis nama Anda">
-          </div>
+        <label>Full Name</label>
+        <input type="text" name="entry.1633588136" required placeholder="Enter your full name">
+
+        <label>Will you attend?</label>
+        <div class="toggle-group">
+          <input type="radio" id="att-yes" name="entry.750206347" value="Insya Allah Hadir" required>
+          <label for="att-yes" class="pill"><i class="fas fa-heart"></i> I'll be there</label>
           
-          <div class="form-group">
-            <label>Konfirmasi Kehadiran</label>
-            <select name="entry.750206347" required>
-              <option value="" disabled selected>Pilih Kehadiran...</option>
-              <option value="Insya Allah Hadir">Insya Allah Hadir</option>
-              <option value="Maaf, Tidak Bisa Hadir">Maaf, Tidak Bisa Hadir</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Jumlah Tamu</label>
-            <select name="entry.1072972206" required>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label>Ucapan & Doa</label>
-            <textarea name="entry.1359184385" placeholder="Tuliskan ucapan dan doa untuk kedua mempelai"></textarea>
-          </div>
-          
-          <button type="submit" class="btn-gold" id="btn-submit-rsvp" style="width: 100%;"><i class="fas fa-paper-plane"></i> Kirim RSVP</button>
-          <p id="rsvp-message" style="display: none; text-align: center; margin-top: 15px; font-weight: 600; color: var(--color-gold);">Terima kasih atas konfirmasi Anda!</p>
-        </form>
-      </div>
-    </section>
-
-    <!-- 8. Digital Gift -->
-    <section class="fade-up" id="gift">
-      <div class="royal-card text-center">
-        <h2 class="subtitle" style="margin-bottom: 10px;">Tanda Kasih</h2>
-        <h3 class="event-title" style="font-size: 3rem;">Digital Gift</h3>
-        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, jika Bapak/Ibu/Saudara/i ingin memberikan tanda kasih, dapat melalui:</p>
-        
-        <div class="credit-card fade-up">
-          <div class="cc-bank">BCA</div>
-          <div class="cc-number" id="norek-bca">5195 2019 41</div>
-          <div class="cc-name">Ahmad Zufar Sidqi</div>
-          <button class="btn-copy" data-target="norek-bca"><i class="far fa-copy"></i> Salin No. Rekening</button>
+          <input type="radio" id="att-no" name="entry.750206347" value="Maaf, Tidak Bisa Hadir">
+          <label for="att-no" class="pill"><i class="fas fa-times"></i> Sorry, I can't make it</label>
         </div>
-      </div>
+
+        <label>Number of guests</label>
+        <div class="squares-group">
+          <input type="radio" id="guest-1" name="entry.1072972206" value="1" required>
+          <label for="guest-1" class="square">1</label>
+          
+          <input type="radio" id="guest-2" name="entry.1072972206" value="2">
+          <label for="guest-2" class="square">2</label>
+        </div>
+
+        <label>Message</label>
+        <textarea name="entry.1359184385" placeholder="Send your best wishes to the couple..."></textarea>
+        
+        <button type="submit" class="btn-burgundy" id="btn-submit-rsvp" style="width: 100%; border-radius: 5px;"><i class="fas fa-paper-plane"></i> Send confirmation</button>
+        <p id="rsvp-message" style="display: none; text-align: center; margin-top: 15px; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; color: var(--color-burgundy);">Terima kasih atas konfirmasi Anda!</p>
+      </form>
     </section>
 
-    <!-- 9. Footer -->
-    <footer class="fade-up">
-      <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; max-width: 500px; margin: 0 auto 30px;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
-      <div class="bismillah" style="color: var(--color-gold); font-family: serif; font-size: 1.5rem; margin-bottom: 20px;">Wassalamu'alaikum Warahmatullahi Wabarakatuh</div>
-      <h1 class="title-names">Zufar & Salma</h1>
-      <p style="margin-top: 20px; font-size: 0.8rem; letter-spacing: 2px; color: #555;">&copy; 2026. THE ROYAL INVITATION.</p>
+    <footer class="fade-up" style="text-align: center; margin-top: 80px;">
+      <h1 class="title-names" style="font-size: 2.5rem;">Zufar & Salma</h1>
+      <p style="font-family: var(--font-sans); font-size: 0.7rem; color: #888; margin-top: 10px; letter-spacing: 2px;">&copy; 2026. THE BURGUNDY INVITATION.</p>
     </footer>
 
   </main>
 
   <script src="js/main.js"></script>
+  <script>
+    // Gift toggle logic
+    document.getElementById('btn-gift').addEventListener('click', function() {
+      const info = document.getElementById('gift-info');
+      if (info.style.display === 'none') {
+        info.style.display = 'block';
+      } else {
+        info.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
