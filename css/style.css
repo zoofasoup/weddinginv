@@ -111,7 +111,6 @@ h1.title-names {
 .envelope-img {
   width: 90%;
   max-width: 350px;
-  mix-blend-mode: multiply;
   margin: 0 auto;
   display: block;
 }
@@ -130,11 +129,9 @@ h1.title-names {
 .wax-seal {
   width: 100px; height: 100px;
   margin: 30px auto;
-  background: url('../assets/burgundy_wax_seal.jpg') center/contain no-repeat;
-  mix-blend-mode: multiply;
+  background: url('../assets/burgundy_wax_seal.png') center/contain no-repeat;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-script); color: var(--color-cream); font-size: 1.5rem;
-  /* Since image is multiply on white, the white becomes transparent. But text on top of the image won't be cream if the image is dark. Wait, wax seal image doesn't have text. We'll just leave it empty or add text on top */
 }
 
 /* Music Player */

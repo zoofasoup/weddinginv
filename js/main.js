@@ -27,9 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Play audio
     if (bgMusic) {
+      bgMusic.volume = 0;
       bgMusic.play().then(() => {
         isPlaying = true;
         audioBtn.classList.remove('paused');
+        // Fade in
+        let vol = 0;
+        const fadeInterval = setInterval(() => {
+          if (vol < 1) {
+            vol += 0.05;
+            bgMusic.volume = Math.min(vol, 1);
+          } else {
+            clearInterval(fadeInterval);
+          }
+        }, 100);
       }).catch(err => {
         console.log("Audio autoplay blocked or file missing", err);
         audioBtn.classList.add('paused');
@@ -98,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   checkFade(); // initial check
 
   // 5. Copy to Clipboard
-  const copyBtns = document.querySelectorAll('.copy-btn');
+  const copyBtns = document.querySelectorAll('.btn-copy');
   copyBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-target');
@@ -116,20 +127,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 6. Add to Calendar logic
   const btnCalendar = document.getElementById('btn-calendar');
-  btnCalendar.addEventListener('click', (e) => {
-    e.preventDefault();
-    const title = 'Syukuran Walimah Zufar & Salma';
-    const location = 'Jelita Venue & Sakha Cafe, Bogor';
-    const details = 'Syukuran Walimah Ahmad Zufar Sidqi & Salma Mahlida Ailiya Passe';
-    // Format: YYYYMMDDTHHmmssZ
-    // 15 Aug 2026 09:00 WIB = 15 Aug 2026 02:00 UTC
-    const startTime = '20260815T020000Z';
-    const endTime = '20260815T060000Z'; // 13:00 WIB
-    
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
-    
-    window.open(googleCalendarUrl, '_blank');
-  });
+  if (btnCalendar) {
+    btnCalendar.addEventListener('click', (e) => {
+      e.preventDefault();
+      const title = 'Syukuran Walimah Zufar & Salma';
+      const location = 'Jelita Venue & Sakha Cafe, Bogor';
+      const details = 'Syukuran Walimah Ahmad Zufar Sidqi & Salma Mahlida Ailiya Passe';
+      // Format: YYYYMMDDTHHmmssZ
+      // 15 Aug 2026 09:00 WIB = 15 Aug 2026 02:00 UTC
+      const startTime = '20260815T020000Z';
+      const endTime = '20260815T060000Z'; // 13:00 WIB
+      
+      const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+      
+      window.open(googleCalendarUrl, '_blank');
+    });
+  }
 
   // 7. Custom RSVP Form Submission (to Google Forms)
   const rsvpForm = document.getElementById('rsvp-form');
