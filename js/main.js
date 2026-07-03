@@ -145,13 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdusvIrNd5Ad4yP5gZrRDDDE8PIzuZtnBHjTsSpAeO9-o8tkw/formResponse';
       
       const formData = new FormData(rsvpForm);
+      const data = new URLSearchParams(formData);
+
       submitBtn.innerText = 'Mengirim...';
       submitBtn.disabled = true;
 
       fetch(GOOGLE_FORM_ACTION_URL, {
         method: 'POST',
         mode: 'no-cors', // Important: bypasses CORS policy for Google Forms
-        body: formData
+        body: data
       })
       .then(() => {
         // no-cors means we won't get a true success response, but we can assume it worked if no network error
