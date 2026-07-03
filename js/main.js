@@ -144,7 +144,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Custom RSVP Form Submission (to Google Forms)
+  // 7. Gift Button Toggle
+  const btnGift = document.getElementById('btn-gift');
+  const giftInfo = document.getElementById('gift-info');
+  if (btnGift && giftInfo) {
+    btnGift.addEventListener('click', () => {
+      if (giftInfo.style.display === 'none') {
+        giftInfo.style.display = 'block';
+        btnGift.innerText = 'tutup rekening';
+      } else {
+        giftInfo.style.display = 'none';
+        btnGift.innerText = 'buka rekening';
+      }
+    });
+  }
+
+  // 8. Custom RSVP Form Submission (to Google Forms)
   const rsvpForm = document.getElementById('rsvp-form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
