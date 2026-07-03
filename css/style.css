@@ -109,8 +109,8 @@ h1.title-names {
   text-align: center;
 }
 .envelope-img {
-  width: 90%;
-  max-width: 350px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   display: block;
 }
