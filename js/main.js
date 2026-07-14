@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const guestNameElement = document.getElementById('guest-name');
   
   if (guestNameParam) {
-    // Replace + or %20 with space and set name
     guestNameElement.textContent = guestNameParam.replace(/\+/g, ' ');
   } else {
     guestNameElement.textContent = "Bapak/Ibu/Saudara/i";
@@ -23,15 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnOpen.addEventListener('click', () => {
     coverScreen.classList.add('open');
-    body.classList.remove('locked'); // Enable scroll
+    body.classList.remove('locked');
     
-    // Play audio
+    // Play audio with fade in
     if (bgMusic) {
       bgMusic.volume = 0;
       bgMusic.play().then(() => {
         isPlaying = true;
         audioBtn.classList.remove('paused');
-        // Fade in
         let vol = 0;
         const fadeInterval = setInterval(() => {
           if (vol < 1) {
@@ -44,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }).catch(err => {
         console.log("Audio autoplay blocked or file missing", err);
         audioBtn.classList.add('paused');
-        audioIcon.className = 'fas fa-compact-disc';
       });
     }
   });
@@ -62,18 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 3. Countdown Timer to 15 August 2026, 09:00 WIB (UTC+7)
-  // getTime() gets ms since epoch. We set it specifically.
   const weddingDate = new Date('2026-08-15T09:00:00+07:00').getTime();
 
   const updateCountdown = () => {
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
+    const elDays = document.getElementById('days');
+    const elHours = document.getElementById('hours');
+    const elMinutes = document.getElementById('minutes');
+    const elSeconds = document.getElementById('seconds');
+
     if (distance < 0) {
-      const elDays = document.getElementById('days');
-      const elHours = document.getElementById('hours');
-      const elMinutes = document.getElementById('minutes');
-      const elSeconds = document.getElementById('seconds');
       if (elDays) elDays.innerText = "00";
       if (elHours) elHours.innerText = "00";
       if (elMinutes) elMinutes.innerText = "00";
@@ -86,25 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    const elDays = document.getElementById('days');
-    const elHours = document.getElementById('hours');
-    const elMinutes = document.getElementById('minutes');
-    const elSeconds = document.getElementById('seconds');
-
     if (elDays) elDays.innerText = days.toString().padStart(2, '0');
     if (elHours) elHours.innerText = hours.toString().padStart(2, '0');
     if (elMinutes) elMinutes.innerText = minutes.toString().padStart(2, '0');
     if (elSeconds) elSeconds.innerText = seconds.toString().padStart(2, '0');
   };
 
-  updateCountdown(); // initial call
+  updateCountdown();
   setInterval(updateCountdown, 1000);
 
   // 4. Scroll Animations (Fade Up)
   const fadeElements = document.querySelectorAll('.fade-up');
   
   const checkFade = () => {
-    const triggerBottom = window.innerHeight * 0.85;
+    const triggerBottom = window.innerHeight * 0.88;
     
     fadeElements.forEach(el => {
       const elTop = el.getBoundingClientRect().top;
@@ -115,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   
   window.addEventListener('scroll', checkFade);
-  checkFade(); // initial check
+  checkFade();
 
   // 5. Copy to Clipboard
   const copyBtns = document.querySelectorAll('.btn-copy');
@@ -125,16 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const textToCopy = document.getElementById(targetId).innerText;
       
       navigator.clipboard.writeText(textToCopy).then(() => {
-        const originalText = btn.innerText;
-        btn.innerText = "Tersalin!";
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> &nbsp;Tersalin!';
         setTimeout(() => {
-          btn.innerText = originalText;
+          btn.innerHTML = originalHTML;
         }, 2000);
       });
     });
   });
 
-  // 6. Add to Calendar logic
+  // 6. Add to Calendar
   const btnCalendar = document.getElementById('btn-calendar');
   if (btnCalendar) {
     btnCalendar.addEventListener('click', (e) => {
@@ -142,10 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const title = 'Syukuran Walimah Zufar & Salma';
       const location = 'Jelita Venue & Sakha Cafe, Bogor';
       const details = 'Syukuran Walimah Ahmad Zufar Sidqi & Salma Mahlida Ailiya Passe';
-      // Format: YYYYMMDDTHHmmssZ
-      // 15 Aug 2026 09:00 WIB = 15 Aug 2026 02:00 UTC
       const startTime = '20260815T020000Z';
-      const endTime = '20260815T060000Z'; // 13:00 WIB
+      const endTime = '20260815T060000Z';
       
       const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
       
@@ -160,15 +150,15 @@ document.addEventListener('DOMContentLoaded', () => {
     btnGift.addEventListener('click', () => {
       if (giftInfo.style.display === 'none') {
         giftInfo.style.display = 'block';
-        btnGift.innerText = 'tutup rekening';
+        btnGift.innerHTML = '<i class="fas fa-times"></i> &nbsp;Tutup';
       } else {
         giftInfo.style.display = 'none';
-        btnGift.innerText = 'buka rekening';
+        btnGift.innerHTML = '<i class="fas fa-gift"></i> &nbsp;Buka Rekening';
       }
     });
   }
 
-  // 8. Custom RSVP Form Submission (to Google Forms)
+  // 8. RSVP Form Submission (to Google Forms)
   const rsvpForm = document.getElementById('rsvp-form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
@@ -177,8 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = document.getElementById('btn-submit-rsvp');
       const rsvpSuccess = document.getElementById('rsvp-success');
       
-      // Update with your actual Google Form POST URL
-      // e.g. https://docs.google.com/forms/d/e/1FAIpQLSc.../formResponse
       const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdusvIrNd5Ad4yP5gZrRDDDE8PIzuZtnBHjTsSpAeO9-o8tkw/formResponse';
       
       const formData = new FormData(rsvpForm);
@@ -189,14 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       fetch(GOOGLE_FORM_ACTION_URL, {
         method: 'POST',
-        mode: 'no-cors', // Important: bypasses CORS policy for Google Forms
+        mode: 'no-cors',
         body: data
       })
       .then(() => {
-        // no-cors means we won't get a true success response, but we can assume it worked if no network error
         rsvpForm.reset();
-        
-        // Hide the form and show the beautiful thank you message
         rsvpForm.style.display = 'none';
         rsvpSuccess.style.display = 'block';
       })
