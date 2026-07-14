@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bgMusic) {
       bgMusic.volume = 0;
       bgMusic.play().then(() => {
+        bgMusic.muted = false; // unmute after autoplay starts
         isPlaying = true;
         audioBtn.classList.remove('paused');
         let vol = 0;
