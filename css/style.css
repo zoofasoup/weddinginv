@@ -46,7 +46,8 @@ body.locked {
 main {
   max-width: 450px;
   margin: 0 auto;
-  background: transparent;
+  background-color: #f0ede6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23d4cfc4' fill-opacity='0.3' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -157,12 +158,6 @@ main {
 .section {
   padding: 60px 35px;
   position: relative;
-}
-
-/* Subtle sage tint for alternating sections to create visual separation */
-.section:nth-of-type(even) {
-  background-color: rgba(197, 216, 203, 0.3); /* Soft sage overlay */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02) inset; /* slight depth */
 }
 
 /* Watercolor divider image between sections */
