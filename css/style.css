@@ -159,6 +159,12 @@ main {
   position: relative;
 }
 
+/* Subtle sage tint for alternating sections to create visual separation */
+.section:nth-of-type(even) {
+  background-color: rgba(197, 216, 203, 0.3); /* Soft sage overlay */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02) inset; /* slight depth */
+}
+
 /* Watercolor divider image between sections */
 .leaf-divider {
   display: block;
