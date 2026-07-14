@@ -27,15 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Play audio with fade in from the beginning
     if (bgMusic) {
       bgMusic.currentTime = 0;
-      bgMusic.volume = 0;
+      
+      // iOS doesn't support programmatic volume changes, it will just play at hardware volume
+      try { bgMusic.volume = 0; } catch(e) {}
+      
       bgMusic.play().then(() => {
         isPlaying = true;
         audioBtn.classList.remove('paused');
+        
         let vol = 0;
         const fadeInterval = setInterval(() => {
           if (vol < 1) {
             vol += 0.05;
-            bgMusic.volume = Math.min(vol, 1);
+            try { bgMusic.volume = Math.min(vol, 1); } catch(e) {}
           } else {
             clearInterval(fadeInterval);
           }
@@ -44,6 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Audio autoplay blocked or file missing", err);
         audioBtn.classList.add('paused');
       });
+      
+      // Robust loop fallback for mobile Safari which often ignores the 'loop' attribute
+      bgMusic.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+      }, false);
     }
   });
 
