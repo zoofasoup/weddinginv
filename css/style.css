@@ -171,7 +171,6 @@ main {
   width: 120px;
   margin: 0 auto;
   opacity: 0.7;
-  mix-blend-mode: darken;
 }
 
 /* Floral decorations */
@@ -179,13 +178,11 @@ main {
   width: 100%;
   display: block;
   margin-bottom: -5px;
-  mix-blend-mode: darken;
 }
 .floral-footer {
   width: 100%;
   display: block;
   margin-top: -5px;
-  mix-blend-mode: darken;
 }
 
 /* ═══════════════════════════════════════════
@@ -221,7 +218,6 @@ main {
   opacity: 0.8;
   pointer-events: none;
   z-index: 0;
-  mix-blend-mode: darken;
 }
 
 #cover-screen > *:not(.cover-floral) {
@@ -263,7 +259,6 @@ main {
   width: 100%;
   display: block;
   pointer-events: none;
-  mix-blend-mode: darken;
 }
 
 .hero-text-block {
