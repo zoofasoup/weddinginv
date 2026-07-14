@@ -24,11 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     coverScreen.classList.add('open');
     body.classList.remove('locked');
     
-    // Play audio with fade in
+    // Play audio with fade in from the beginning
     if (bgMusic) {
+      bgMusic.currentTime = 0;
       bgMusic.volume = 0;
       bgMusic.play().then(() => {
-        bgMusic.muted = false; // unmute after autoplay starts
         isPlaying = true;
         audioBtn.classList.remove('paused');
         let vol = 0;
