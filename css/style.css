@@ -164,9 +164,8 @@ main {
 .leaf-divider {
   display: block;
   width: 120px;
-  margin: 0 auto;
-  opacity: 0.7;
-  mix-blend-mode: multiply;
+  margin: 0 auto 30px auto;
+  opacity: 0.9;
 }
 
 /* Floral decorations */
@@ -174,13 +173,11 @@ main {
   width: 100%;
   display: block;
   margin-bottom: -5px;
-  mix-blend-mode: multiply;
 }
 .floral-footer {
   width: 100%;
   display: block;
   margin-top: -5px;
-  mix-blend-mode: multiply;
 }
 
 /* ═══════════════════════════════════════════
@@ -213,10 +210,9 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.9;
   pointer-events: none;
   z-index: 0;
-  mix-blend-mode: multiply;
 }
 
 #cover-screen > *:not(.cover-floral) {
@@ -258,7 +254,6 @@ main {
   width: 100%;
   display: block;
   pointer-events: none;
-  mix-blend-mode: multiply;
 }
 
 .hero-text-block {
