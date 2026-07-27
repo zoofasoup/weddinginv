@@ -7,8 +7,64 @@ document.addEventListener('DOMContentLoaded', () => {
   if (guestNameParam) {
     guestNameElement.textContent = guestNameParam.replace(/\+/g, ' ');
   } else {
-    guestNameElement.textContent = "Bapak/Ibu/Saudara/i";
+    guestNameElement.textContent = "Dear Guest";
   }
+
+  // --- GAS URL CONFIG ---
+  // You will replace this with your actual Google Apps Script Web App URL later
+  const GAS_URL = ''; 
+
+  function fetchWishes() {
+    const track = document.getElementById('wishes-track');
+    if (!track) return;
+
+    if (!GAS_URL) {
+      // Dummy data for preview since GAS is not connected yet
+      const dummyWishes = [
+        { name: 'Budi S.', message: 'Happy wedding! May you have a wonderful journey together.', status: 'Joyfully Accept' },
+        { name: 'Andi T.', message: 'Congratulations! So sorry I cannot make it.', status: 'Regretfully Decline' },
+        { name: 'Sarah A.', message: 'Wishing you a lifetime of love and happiness!', status: 'Joyfully Accept' },
+        { name: 'Dimas R.', message: 'Barakallah laka wa baraka alaika wa jamaa bainakuma fii khair.', status: 'Joyfully Accept' }
+      ];
+      renderWishes(dummyWishes, track);
+      return;
+    }
+
+    // Real fetch when URL is ready
+    fetch(`${GAS_URL}?id=dummy`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.wishes && data.wishes.length > 0) {
+          renderWishes(data.wishes, track);
+        } else {
+          track.innerHTML = '<div class="wish-item" style="text-align: center;">No messages yet. Be the first to leave a wish!</div>';
+        }
+      })
+      .catch(err => {
+        console.error("Error fetching wishes:", err);
+      });
+  }
+
+  function renderWishes(wishes, trackElement) {
+    trackElement.innerHTML = ''; // Clear loading
+    
+    // Create HTML for wishes
+    let wishesHTML = wishes.map(wish => `
+      <div class="wish-item">
+        <div class="wish-name">
+          ${wish.name} 
+          ${wish.status ? `<span class="wish-status">${wish.status}</span>` : ''}
+        </div>
+        <div class="wish-message">"${wish.message}"</div>
+      </div>
+    `).join('');
+
+    // Duplicate for seamless infinite scroll
+    trackElement.innerHTML = wishesHTML + wishesHTML;
+  }
+
+  // Load wishes on start
+  fetchWishes();
 
   // 2. Cover Screen and Audio Logic
   const btnOpen = document.getElementById('btn-open');
@@ -129,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       navigator.clipboard.writeText(textToCopy).then(() => {
         const originalHTML = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> &nbsp;Tersalin!';
+        btn.innerHTML = '<i class="fas fa-check"></i> &nbsp;Copied!';
         setTimeout(() => {
           btn.innerHTML = originalHTML;
         }, 2000);
@@ -161,10 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btnGift.addEventListener('click', () => {
       if (giftInfo.style.display === 'none') {
         giftInfo.style.display = 'block';
-        btnGift.innerHTML = '<i class="fas fa-times"></i> &nbsp;Tutup';
+        btnGift.innerHTML = '<i class="fas fa-times"></i> &nbsp;Close';
       } else {
         giftInfo.style.display = 'none';
-        btnGift.innerHTML = '<i class="fas fa-gift"></i> &nbsp;Buka Rekening';
+        btnGift.innerHTML = '<i class="fas fa-gift"></i> &nbsp;Open Gift Options';
       }
     });
   }
@@ -183,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(rsvpForm);
       const data = new URLSearchParams(formData);
 
-      submitBtn.innerText = 'Mengirim...';
+      submitBtn.innerText = 'Submitting...';
       submitBtn.disabled = true;
 
       fetch(GOOGLE_FORM_ACTION_URL, {
@@ -195,10 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
         rsvpForm.reset();
         rsvpForm.style.display = 'none';
         rsvpSuccess.style.display = 'block';
+        // Refresh wishes after 2 seconds (if using GAS)
+        setTimeout(fetchWishes, 2000);
       })
       .catch(error => {
         console.error('Error submitting form', error);
-        submitBtn.innerText = 'Gagal, coba lagi';
+        submitBtn.innerText = 'Failed, please try again';
         submitBtn.disabled = false;
       });
     });
