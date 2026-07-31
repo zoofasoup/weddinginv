@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!GAS_URL) {
       // Dummy data for preview since GAS is not connected yet
+      // Set to VIP to preview Akad section
+      const dummyCategory = 'VIP'; 
+      if (dummyCategory === 'VIP') {
+        const akadSection = document.getElementById('akad-section');
+        if (akadSection) akadSection.style.display = 'block';
+      }
+
       const dummyWishes = [
         { name: 'Budi S.', message: 'Happy wedding! May you have a wonderful journey together.', status: 'Joyfully Accept' },
         { name: 'Andi T.', message: 'Congratulations! So sorry I cannot make it.', status: 'Regretfully Decline' },
@@ -31,9 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Real fetch when URL is ready
-    fetch(`${GAS_URL}?id=dummy`)
+    fetch(`${GAS_URL}?id=${guestNameParam || 'dummy'}`)
       .then(res => res.json())
       .then(data => {
+        // Toggle Akad visibility based on category
+        if (data.category === 'VIP') {
+          const akadSection = document.getElementById('akad-section');
+          if (akadSection) akadSection.style.display = 'block';
+        }
+
         if (data.wishes && data.wishes.length > 0) {
           renderWishes(data.wishes, track);
         } else {
