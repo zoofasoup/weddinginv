@@ -19,21 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!track) return;
 
     if (!GAS_URL) {
-      // Dummy data for preview since GAS is not connected yet
-      // Set to VIP to preview Akad section
-      const dummyCategory = 'VIP'; 
-      if (dummyCategory === 'VIP') {
-        const akadSection = document.getElementById('akad-section');
-        if (akadSection) akadSection.style.display = 'block';
-      }
-
-      const dummyWishes = [
-        { name: 'Budi S.', message: 'Happy wedding! May you have a wonderful journey together.', status: 'Joyfully Accept' },
-        { name: 'Andi T.', message: 'Congratulations! So sorry I cannot make it.', status: 'Regretfully Decline' },
-        { name: 'Sarah A.', message: 'Wishing you a lifetime of love and happiness!', status: 'Joyfully Accept' },
-        { name: 'Dimas R.', message: 'Barakallah laka wa baraka alaika wa jamaa bainakuma fii khair.', status: 'Joyfully Accept' }
-      ];
-      renderWishes(dummyWishes, track);
+      track.innerHTML = '<div class="wish-item" style="text-align: center;">Backend URL not configured. Please wait for the script to be deployed.</div>';
       return;
     }
 
