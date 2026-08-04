@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- GAS URL CONFIG ---
   // You will replace this with your actual Google Apps Script Web App URL later
-  const GAS_URL = ''; 
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbwCCt43SOM_glpTnzU73I9GFrbhw7ZLHNKEvInifwWSq1LgW8A-6TiDdx8MAZu8ogS-/exec';
 
   function fetchWishes() {
     const track = document.getElementById('wishes-track');
