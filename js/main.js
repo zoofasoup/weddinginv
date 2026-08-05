@@ -53,15 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
     trackElement.innerHTML = ''; // Clear loading
     
     // Create HTML for wishes
-    let wishesHTML = wishes.map(wish => `
+    let wishesHTML = wishes.map(wish => {
+      let statusClass = '';
+      if (wish.status === 'Joyfully Accept') statusClass = 'accept';
+      else if (wish.status === 'Regretfully Decline') statusClass = 'decline';
+
+      return `
       <div class="wish-item">
         <div class="wish-name">
           ${wish.name} 
-          ${wish.status ? `<span class="wish-status">${wish.status}</span>` : ''}
+          ${wish.status ? `<span class="wish-status ${statusClass}">${wish.status}</span>` : ''}
         </div>
         <div class="wish-message">"${wish.message}"</div>
       </div>
-    `).join('');
+      `;
+    }).join('');
 
     // Duplicate for seamless infinite scroll
     trackElement.innerHTML = wishesHTML + wishesHTML;

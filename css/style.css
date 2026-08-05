@@ -708,6 +708,14 @@ footer {
   margin-left: 10px;
   font-weight: 500;
 }
+.wish-status.accept {
+  background: #e3f0e5;
+  color: #3b7a57;
+}
+.wish-status.decline {
+  background: #fce4e4;
+  color: #cc4141;
+}
 .wish-message {
   font-size: 0.85rem;
   color: var(--color-text);
