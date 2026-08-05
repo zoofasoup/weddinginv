@@ -55,14 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create HTML for wishes
     let wishesHTML = wishes.map(wish => {
       let statusClass = '';
-      if (wish.status === 'Insya Allah Hadir') statusClass = 'accept';
-      else if (wish.status === 'Maaf, Tidak Bisa Hadir') statusClass = 'decline';
+      let displayStatus = wish.status;
+      
+      // Map statuses to English for display, handle both old and new data
+      if (wish.status === 'Insya Allah Hadir' || wish.status === 'Joyfully Accept') {
+        statusClass = 'accept';
+        displayStatus = 'Joyfully Accept';
+      } else if (wish.status === 'Maaf, Tidak Bisa Hadir' || wish.status === 'Regretfully Decline') {
+        statusClass = 'decline';
+        displayStatus = 'Regretfully Decline';
+      }
 
       return `
       <div class="wish-item">
         <div class="wish-name">
           ${wish.name} 
-          ${wish.status ? `<span class="wish-status ${statusClass}">${wish.status}</span>` : ''}
+          ${displayStatus ? `<span class="wish-status ${statusClass}">${displayStatus}</span>` : ''}
         </div>
         <div class="wish-message">"${wish.message}"</div>
       </div>
