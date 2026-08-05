@@ -284,12 +284,12 @@
       <form id="rsvp-form" class="fade-up">
         <div class="form-group">
           <label>Full Name</label>
-          <input type="text" name="entry.1633588136" required placeholder="Enter your name">
+          <input type="text" id="rsvp-name" name="nama" readonly style="background-color: rgba(255,255,255,0.5); color: #555; border: 1px solid #ddd; pointer-events: none;">
         </div>
         
         <div class="form-group">
           <label>Attendance</label>
-          <select name="entry.750206347" required>
+          <select name="status" required>
             <option value="" disabled selected>Will you attend?</option>
             <option value="Joyfully Accept">Joyfully Accept</option>
             <option value="Regretfully Decline">Regretfully Decline</option>
@@ -298,7 +298,7 @@
 
         <div class="form-group">
           <label>Number of Guests</label>
-          <select name="entry.1072972206" required>
+          <select name="tamu" required>
             <option value="1">1</option>
             <option value="2">2</option>
           </select>
@@ -306,7 +306,7 @@
         
         <div class="form-group">
           <label>Wishes &amp; Prayers</label>
-          <textarea name="entry.1359184385" placeholder="Leave a message for the bride and groom"></textarea>
+          <textarea name="ucapan" placeholder="Leave a message for the bride and groom"></textarea>
         </div>
         
         <button type="submit" class="btn-sage" id="btn-submit-rsvp" style="width: 100%;"><i class="fas fa-paper-plane"></i> &nbsp;Submit RSVP</button>

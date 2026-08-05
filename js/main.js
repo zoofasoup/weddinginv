@@ -3,11 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
   const guestNameParam = urlParams.get('to');
   const guestNameElement = document.getElementById('guest-name');
+  const rsvpNameInput = document.getElementById('rsvp-name');
   
   if (guestNameParam) {
-    guestNameElement.textContent = guestNameParam.replace(/\+/g, ' ');
+    const decodedName = guestNameParam.replace(/\+/g, ' ');
+    guestNameElement.textContent = decodedName;
+    if (rsvpNameInput) rsvpNameInput.value = decodedName;
   } else {
     guestNameElement.textContent = "Dear Guest";
+    if (rsvpNameInput) rsvpNameInput.value = "Dear Guest";
   }
 
   // --- GAS URL CONFIG ---
@@ -224,33 +228,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8. RSVP Form Submission (to Google Forms)
+  // 8. RSVP Form Submission (to Google Apps Script)
   const rsvpForm = document.getElementById('rsvp-form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
+      if (!GAS_URL) {
+        alert("Backend URL is not configured yet.");
+        return;
+      }
+      
       const submitBtn = document.getElementById('btn-submit-rsvp');
       const rsvpSuccess = document.getElementById('rsvp-success');
       
-      const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdusvIrNd5Ad4yP5gZrRDDDE8PIzuZtnBHjTsSpAeO9-o8tkw/formResponse';
-      
       const formData = new FormData(rsvpForm);
+      // Append ID to the form data so GAS knows which row to update
+      const guestId = urlParams.get('id');
+      if (guestId) {
+        formData.append('id', guestId);
+      }
+      
       const data = new URLSearchParams(formData);
 
       submitBtn.innerText = 'Submitting...';
       submitBtn.disabled = true;
 
-      fetch(GOOGLE_FORM_ACTION_URL, {
+      fetch(GAS_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        body: data
+        body: data,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        mode: 'no-cors' // Google Apps Script requires no-cors for form posts from browser
       })
       .then(() => {
         rsvpForm.reset();
         rsvpForm.style.display = 'none';
         rsvpSuccess.style.display = 'block';
-        // Refresh wishes after 2 seconds (if using GAS)
+        // Refresh wishes after a short delay
         setTimeout(fetchWishes, 2000);
       })
       .catch(error => {
