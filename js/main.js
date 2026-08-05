@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create HTML for wishes
     let wishesHTML = wishes.map(wish => {
       let statusClass = '';
-      if (wish.status === 'Joyfully Accept') statusClass = 'accept';
-      else if (wish.status === 'Regretfully Decline') statusClass = 'decline';
+      if (wish.status === 'Insya Allah Hadir') statusClass = 'accept';
+      else if (wish.status === 'Maaf, Tidak Bisa Hadir') statusClass = 'decline';
 
       return `
       <div class="wish-item">
