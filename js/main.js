@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Real fetch when URL is ready
-    fetch(`${GAS_URL}?id=${guestNameParam || 'dummy'}`)
+    const guestId = urlParams.get('id');
+    fetch(`${GAS_URL}?id=${guestId || 'dummy'}`)
       .then(res => res.json())
       .then(data => {
         // Toggle Akad visibility based on category
