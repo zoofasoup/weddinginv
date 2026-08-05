@@ -295,19 +295,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // 9. Falling Petals Effect
   const petalsContainer = document.getElementById('petals-container');
   if (petalsContainer) {
+    const leafImages = [
+      'assets/Background_2.webp',
+      'assets/Background_3.webp',
+      'assets/Background_4.webp',
+      'assets/Background_5.webp',
+      'assets/Background_6.webp'
+    ];
+
     function createPetal() {
-      const petal = document.createElement('div');
+      const petal = document.createElement('img');
+      petal.src = leafImages[Math.floor(Math.random() * leafImages.length)];
       petal.classList.add('petal');
       
       // Randomize properties
       const left = Math.random() * 100; 
-      const size = Math.random() * 8 + 8; 
+      const size = Math.random() * 15 + 15; // 15px to 30px (slightly larger for images)
       const fallDuration = Math.random() * 5 + 10; 
       const swayDuration = Math.random() * 2 + 2; 
       
       petal.style.left = `${left}vw`;
       petal.style.width = `${size}px`;
-      petal.style.height = `${size}px`;
+      petal.style.height = 'auto';
       petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
       
       petalsContainer.appendChild(petal);

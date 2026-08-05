@@ -163,7 +163,7 @@ main {
 /* Watercolor divider image between sections */
 .leaf-divider {
   display: block;
-  width: 120px;
+  width: 60px;
   margin: 0 auto 30px auto;
   opacity: 0.9;
 }
@@ -739,10 +739,8 @@ footer {
 
 .petal {
   position: absolute;
-  top: -20px;
-  background-color: var(--color-sage-light);
-  opacity: 0.5;
-  border-radius: 15px 0 15px 15px;
+  top: -30px;
+  opacity: 0.8;
   pointer-events: none;
   animation: fall linear forwards, sway ease-in-out infinite alternate;
 }
