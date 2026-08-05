@@ -291,4 +291,38 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // 9. Falling Petals Effect
+  const petalsContainer = document.getElementById('petals-container');
+  if (petalsContainer) {
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      
+      // Randomize properties
+      const left = Math.random() * 100; 
+      const size = Math.random() * 8 + 8; 
+      const fallDuration = Math.random() * 5 + 10; 
+      const swayDuration = Math.random() * 2 + 2; 
+      
+      petal.style.left = `${left}vw`;
+      petal.style.width = `${size}px`;
+      petal.style.height = `${size}px`;
+      petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+      
+      petalsContainer.appendChild(petal);
+      
+      // Remove petal after it falls
+      setTimeout(() => {
+        petal.remove();
+      }, fallDuration * 1000);
+    }
+    
+    // Create initial petals
+    for(let i=0; i<15; i++) {
+      setTimeout(createPetal, Math.random() * 8000);
+    }
+    // Continue creating
+    setInterval(createPetal, 800);
+  }
 });
