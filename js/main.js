@@ -97,6 +97,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Duplicate for seamless infinite scroll
     trackElement.innerHTML = wishesHTML + wishesHTML;
+
+    // JS Auto-scrolling logic
+    const container = trackElement.parentElement;
+    let scrollSpeed = 1.2; // Adjust for speed
+    let isPaused = false;
+    
+    function autoScroll() {
+      if (!isPaused) {
+        container.scrollTop += scrollSpeed;
+        if (container.scrollTop >= trackElement.scrollHeight / 2) {
+          container.scrollTop = 0;
+        }
+      }
+      window.wishScrollReqId = requestAnimationFrame(autoScroll);
+    }
+    
+    if (window.wishScrollReqId) cancelAnimationFrame(window.wishScrollReqId);
+    window.wishScrollReqId = requestAnimationFrame(autoScroll);
+
+    // Pause on interaction
+    container.addEventListener('mouseenter', () => isPaused = true);
+    container.addEventListener('mouseleave', () => isPaused = false);
+    container.addEventListener('touchstart', () => isPaused = true, {passive: true});
+    container.addEventListener('touchend', () => isPaused = false, {passive: true});
   }
 
   // Load wishes on start

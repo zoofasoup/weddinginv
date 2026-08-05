@@ -650,12 +650,18 @@ footer {
    ═══════════════════════════════════════════ */
 .wishes-container {
   height: 350px;
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
   background: rgba(255,255,255,0.5);
   border-radius: 12px;
   padding: 10px;
   border: 1px solid rgba(135, 149, 139, 0.2);
+  /* Hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.wishes-container::-webkit-scrollbar {
+  display: none;
 }
 
 .wishes-container::before, .wishes-container::after {
@@ -679,15 +685,6 @@ footer {
 .wishes-scroll-track {
   display: flex;
   flex-direction: column;
-  animation: scrollVertical 20s linear infinite;
-}
-.wishes-scroll-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollVertical {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
 }
 
 .wish-item {
