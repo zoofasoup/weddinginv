@@ -163,7 +163,7 @@ main {
 /* Watercolor divider image between sections */
 .leaf-divider {
   display: block;
-  width: 250px;
+  width: 350px;
   margin: 0 auto 30px auto;
   opacity: 0.9;
 }
