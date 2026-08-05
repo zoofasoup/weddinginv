@@ -9,6 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const decodedName = guestNameParam.replace(/\+/g, ' ');
     guestNameElement.textContent = decodedName;
     if (rsvpNameInput) rsvpNameInput.value = decodedName;
+    
+    const rsvpPaxSelect = document.querySelector('select[name="tamu"]');
+    if (rsvpPaxSelect) {
+      const lowerName = decodedName.toLowerCase();
+      if (lowerName.includes('&') || 
+          lowerName.includes(' dan ') || 
+          lowerName.includes(' and ') || 
+          lowerName.includes('keluarga') || 
+          lowerName.includes('family') ||
+          lowerName.includes('partner') ||
+          lowerName.includes('istri') ||
+          lowerName.includes('suami') ||
+          lowerName.includes('+')) {
+        rsvpPaxSelect.value = "2";
+      } else {
+        rsvpPaxSelect.value = "1";
+      }
+    }
   } else {
     guestNameElement.textContent = "Dear Guest";
     if (rsvpNameInput) rsvpNameInput.value = "Dear Guest";
