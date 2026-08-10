@@ -28,8 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   } else {
-    guestNameElement.textContent = "Dear Guest";
-    if (rsvpNameInput) rsvpNameInput.value = "Dear Guest";
+    guestNameElement.textContent = "Tamu Undangan";
+    if (rsvpNameInput) {
+      rsvpNameInput.value = "";
+      rsvpNameInput.placeholder = "Tulis nama Anda di sini...";
+      rsvpNameInput.removeAttribute('readonly');
+      rsvpNameInput.style.pointerEvents = "auto";
+      rsvpNameInput.style.backgroundColor = "#fff";
+      rsvpNameInput.style.color = "#333";
+      rsvpNameInput.required = true;
+    }
   }
 
   // --- GAS URL CONFIG ---
@@ -47,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Real fetch when URL is ready
     const guestId = urlParams.get('id');
-    fetch(`${GAS_URL}?id=${guestId || 'dummy'}`)
+    fetch(`${GAS_URL}?id=${guestId || 'public'}`)
       .then(res => res.json())
       .then(data => {
         // Toggle Akad visibility based on category
@@ -302,9 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(rsvpForm);
       // Append ID to the form data so GAS knows which row to update
       const guestId = urlParams.get('id');
-      if (guestId) {
-        formData.append('id', guestId);
-      }
+      formData.append('id', guestId || 'public');
       
       const data = new URLSearchParams(formData);
 
